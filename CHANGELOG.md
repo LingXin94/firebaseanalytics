@@ -163,12 +163,27 @@ Support
 
 Release Notes
 -------------
+### 8.3.0:
+-   Changes
+    - Firestore: Simplified the API for modifying the settings of a
+      `FirebaseFirestore` instance. This is a backwards-incompatible change and
+      requires updates to code that sets `FirebaseFirestore.Settings`.
+    - Firestore: Changed an argument to `Query.WhereNotIn()` from `List` to
+      `IEnumerable`, to be consistent with `Query.WhereIn()`.
+    - Messaging (Android): Fixes an issue with receiving tokens when
+      initializing the app.
+
 ### 8.2.0:
 -   Changes
     - Firestore: Removed `Equals` and `GetHashCode` methods from `Query`,
       `QuerySnapshot`, and `DocumentSnapshot` classes. These methods were
       unimplemented, and we plan to add proper support for them in a future
       release.
+    - Crashlytics: Upload UnityFramework symbols in addition to the main app
+      dSYM file to improve symbolication
+      ([#673](https://github.com/firebase/quickstart-unity/issues/673)).
+    - Messaging: Fixed a duplicate class error when building an application
+      which also uses Firebase Functions.
 
 ### 8.1.0:
 -   Changes
