@@ -98,14 +98,6 @@ If you import another Firebase plugin:
   `Assets > Play Services Resolver > Version Handler > Update`
   to enable the correct DLLs for your project.
 
-### Unity 2017.2 Networking
-
-Realtime Database creates TLS network connections using the .NET networking
-stack.  TLS functionality is broken in Unity 2017.2 when using .NET 4.6 causing
-the Realtime Database plugin to fail in editor and on desktop.  There is no
-workaround for this issue, you have to use a different version of Unity, for
-example 2017.1 or 2017.3.
-
 
 ### Unity 4 workarounds
 
@@ -163,6 +155,47 @@ Support
 
 Release Notes
 -------------
+### 9.0.0
+- Changes
+    - General: Minimum supported editor version is now Unity 2018.
+    - General (Editor, macOS): Add support for Apple Silicon chips.
+    - General (iOS): Firebase Unity on iOS is now built using Xcode 13.3.1.
+    - General (iOS): Fixed crash when running on iPhoneOS 12 and older.
+    - Analytics: Removed deprecated event names and parameters.
+    - Crashlytics (Android): Fixed a bug with missing symbols when enabling
+      minification via proguard.
+    - Messaging (Android): Fixed a bug with duplicate symbols when also
+      using Functions.
+    - Realtime Database (Desktop): Fixed a bug handling server timestamps
+      on 32-bit CPUs.
+    - Storage (Desktop): Set Content-Type HTTP header when uploading with
+      custom metadata.
+
+### 8.10.1
+- Changes
+    - General (Android): Fix an issue when building with mainTemplate.gradle.
+
+### 8.10.0
+- Changes
+    - General (Editor, macOS): Fix an issue when finding "python" executable.
+    - General : Firebase Unity SDK starts to build using Unity 2019,
+      and releases from git repo.
+
+### 8.9.0
+- Changes
+    - General (Editor, macOS): Support non-default "python" executable names,
+      common in newer macOS versions.
+    - General (iOS): Fixed additional issues on iOS 15 caused by early
+      initialization of Firebase iOS SDK.
+    - Remote Config: Fixed default FetchAsync() timeout being too high.
+    - Storage (Desktop): Added retry logic to PutFileAsync, GetFileAsync, and
+      other operations.
+
+### 8.8.1
+- Changes
+    - General (iOS): Fixed additional issues on iOS 15 caused by early
+      initialization of Firebase iOS SDK.
+
 ### 8.8.0
 - Changes
     - General (iOS): Another possible fix for an intermittent crash on iOS 15
