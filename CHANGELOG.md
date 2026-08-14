@@ -4,15 +4,13 @@ Firebase Unity SDK
 The Firebase Unity SDK provides Unity packages for the following Firebase
 features on *iOS*, *tvOS* and *Android*.
 
-Note: Firebase Dynamic Links is not supported on tvOS.
-
 | Feature                             | Unity Package                     |
 |:-----------------------------------:|:---------------------------------:|
+| Firebase AI Logic                   | FirebaseAI.unitypackage           |
 | Firebase Analytics                  | FirebaseAnalytics.unitypackage    |
 | Firebase App Check                  | FirebaseAppCheck.unitypackage     |
 | Firebase Authentication             | FirebaseAuth.unitypackage         |
 | Firebase Crashlytics                | FirebaseCrashlytics.unitypackage  |
-| Firebase Dynamic Links (deprecated) | FirebaseDynamicLinks.unitypackage |
 | Cloud Firestore                     | FirebaseFirestore.unitypackage    |
 | Firebase Functions                  | FirebaseFunctions.unitypackage    |
 | Firebase Installations              | FirebaseInstallations.unitypackage|
@@ -31,6 +29,7 @@ desktop builds on Windows, OS X, and Linux:
 
 | Feature                            | Unity Package                     |
 |:----------------------------------:|:---------------------------------:|
+| Firebase AI Logic                  | FirebaseAI.unitypackage           |
 | Firebase Authentication            | FirebaseAuth.unitypackage         |
 | Firebase App Check                 | FirebaseAppCheck.unitypackage     |
 | Firebase Realtime Database*        | FirebaseDatabase.unitypackage     |
@@ -110,6 +109,78 @@ Support
 
 Release Notes
 -------------
+### 13.6.0
+-   Changes
+    - General: Update to Firebase C++ SDK version 13.3.0.
+    - General (Android): Update to Firebase Android BoM version 34.6.0.
+    - General (iOS): Update to Firebase Cocoapods version 12.6.0.
+    - Analytics: Added `SetDefaultEventParameters()` which allows developers to
+      specify a list  of parameters that will be set on every event logged.
+    - Analytics: Added a new `LogEvent()` that take in a IEnumerable of
+      parameters.
+    - Firebase AI: Added support for using
+      [Server Prompt Templates](https://firebase.google.com/docs/ai-logic/server-prompt-templates/get-started).
+
+### 13.5.0
+-   Changes
+    - Firebase AI: Add support for receiving Live API Transcripts.
+    - Storage: Add support for Firebase Storage emulator via `UseEmulator`.
+      The `UseEmulator` method should be called before invoking any other
+      methods on a new instance of Storage. Default port is 9199.
+
+### 13.4.0
+-   Changes
+    - General: Update to Firebase C++ SDK version 13.2.0.
+    - General (Android): Update to Firebase Android BoM version 34.4.0.
+    - General (iOS): Update to Firebase Cocoapods version 12.4.0.
+    - Firebase AI: Add support for Gemini's URL context tool.
+    - Firebase AI: Add more specific methods for sending realtime data to
+      the LiveSession. Deprecate the previous SendMediaChunksAsync method.
+
+### 13.3.0
+-   Changes
+    - Firebase AI: Add support for enabling the model to use Code Execution.
+    - Messaging: Fix crash when deleting a Message with a Notification.
+      ([#1334](https://github.com/firebase/firebase-unity-sdk/issues/1334)).
+
+### 13.2.0
+-   Changes
+    - General: Update to Firebase C++ SDK version 13.1.0.
+    - General (Android): Update to Firebase Android BoM version 34.2.0.
+    - General (iOS): Update to Firebase Cocoapods version 12.2.0.
+    - Firebase AI: Add support for receiving Thought summaries when
+      generating content.
+    - Firebase AI: Remove `LiveGenerationConfig.CandidateCount`, since the
+      connection fails silently when it is set.
+
+### 13.1.0
+-   Changes
+    - Firebase AI: Add support for Developer API backend to LiveSessions.
+
+### 13.0.0
+-   Changes
+    - General: Update to Firebase C++ SDK version 13.0.0.
+    - General (Android): Update to Firebase Android BoM version 34.0.0.
+    - General (iOS): Update to Firebase Cocoapods version 12.0.0.
+    - General (iOS, tvOS): Minimum iOS and tvOS deployment target is now 15.0.
+    - General: Minimum supported editor version is now Unity 2021.
+    - Analytics: Removed deprecated `FirebaseAnalytics.ParameterGroupId`
+      and `Parameter.Dispose` methods.
+    - Auth: Removed deprecated `FirebaseUser.UpdateEmailAsync`.
+    - Dynamic Links: Removed the Dynamic Links SDK. See the [support
+      documentation](https://firebase.google.com/support/dynamic-links-faq)
+      for more information.
+    - Firebase AI: Add support for image generation via Imagen. For more info, see
+      https://firebase.google.com/docs/ai-logic/generate-images-imagen
+    - Firebase AI: Add support for Grounding with Google Search.
+    - Firebase AI: Add support for defining a Thinking budget.
+    - Firebase AI: Deprecated `CountTokensResponse.TotalBillableCharacters`, use
+      `CountTokensResponse.TotalTokens` instead.
+    - Firebase AI: Changed public field types for ReadOnlyMemory<byte> to byte[],
+      and IEnumerable to IReadOnlyList.
+    - Messaging: Removed deprecated `FirebaseMessage.Dispose`,
+      `FirebaseNotification.Dispose`, and `MessagingOptions.Dispose` methods.
+
 ### 12.10.1
 -   Changes
     - General (iOS): Change AppDelegate swizzling logic to not use `objc_copyClassList`,
